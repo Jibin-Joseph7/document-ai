@@ -12,5 +12,8 @@
     "dev:client": "npm run dev --workspace client",
     "install:ai": "pip install -r ai-service/requirements.txt"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^13.0.3"
+  }
 }
