@@ -9,9 +9,10 @@ const multer = require('multer');
 
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
-//const folderRoutes = require('./routes/folderRoutes');
-//const tagRoutes = require('./routes/tagRoutes');
-//const documentRoutes = require('./routes/documentRoutes');
+const folderRoutes = require('./routes/folderRoutes');
+const tagRoutes = require('./routes/tagRoutes');
+const documentRoutes = require('./routes/documentRoutes');
+const analyticsRoutes = require('./routes/analyticsRoutes');
 
 const app = express();
 
@@ -25,10 +26,11 @@ app.get('/api/health', (req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
-// app.use('/api/folders', folderRoutes);
-// app.use('/api/tags', tagRoutes);
-// app.use('/api/documents', documentRoutes);
-// Sharing routes land in commit 7, analytics in commit 8.
+app.use('/api/folders', folderRoutes);
+app.use('/api/tags', tagRoutes);
+app.use('/api/documents', documentRoutes);
+app.use('/api/analytics', analyticsRoutes);
+// AI-service integration (search/Q&A/summarization proxy) lands in commit 19.
 
 // 404 fallback
 app.use((req, res) => {
