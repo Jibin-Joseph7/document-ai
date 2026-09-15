@@ -37,5 +37,3 @@ app.include_router(ingest.router)
 app.include_router(search.router)
 app.include_router(qa.router)
 app.include_router(summarize.router)
-
-# Auto-tagging router is included here starting in commit 18.
