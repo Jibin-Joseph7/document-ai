@@ -1,10 +1,23 @@
-fastapi
-uvicorn[standard]
-python-multipart
-pypdf
-python-docx
-pandas
-openpyxl
-chromadb
-sentence-transformers
-python-dotenv
+# ai-service/requirements.txt
+#
+# Grouped by which commit introduces the need for it, so it's clear why
+# each dependency is here. Install with:
+#   pip install -r ai-service/requirements.txt --break-system-packages
+
+
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pydantic-settings==2.5.2
+python-dotenv==1.0.1
+
+
+python-docx==1.1.2
+openpyxl==3.1.5
+
+numpy==2.1.1
+requests==2.32.3
+
+
+chromadb==0.5.11
+pypdf==5.1.0
+sentence-transformers==3.1.1
