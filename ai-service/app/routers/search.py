@@ -1,3 +1,4 @@
+# ai-service/app/routers/search.py
 """
 Semantic search over ingested document chunks.
 
