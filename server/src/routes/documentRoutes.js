@@ -8,6 +8,10 @@ const {
   deleteDocument,
   downloadDocument,
   setDocumentTags,
+  semanticSearch,
+  askQuestion,
+  summarizeDocument,
+  suggestDocumentTags,
 } = require('../controllers/documentController');
 const {
   createShare,
@@ -23,11 +27,20 @@ router.use(authenticateUser);
 
 router.post('/', upload.single('file'), uploadDocument);
 router.get('/', listDocuments);
+
+// Static paths must come before the '/:id' dynamic routes below, or
+// Express would try to match e.g. "search" as an :id.
+router.post('/search', semanticSearch);
+router.post('/ask', askQuestion);
+
 router.get('/:id', getDocument);
 router.patch('/:id', updateDocument);
 router.delete('/:id', deleteDocument);
 router.get('/:id/download', downloadDocument);
 router.put('/:id/tags', setDocumentTags);
+router.post('/:id/ask', askQuestion);
+router.post('/:id/summarize', summarizeDocument);
+router.post('/:id/suggest-tags', suggestDocumentTags);
 
 // Sharing (nested under the document it applies to)
 router.post('/:id/shares', createShare);

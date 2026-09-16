@@ -1,8 +1,7 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
-from app.embeddings import embed_texts
-from app.vector_store import query_similar
+from app.summarization import summarize_document
 
 
 router = APIRouter(prefix="/summarize", tags=["summarization"])
@@ -10,23 +9,29 @@ router = APIRouter(prefix="/summarize", tags=["summarization"])
 
 class SummarizeRequest(BaseModel):
     document_id: int
-    query: str = "document content"
-    n_results: int = Field(default=20, ge=1, le=100)
+    max_sentences: int = Field(default=5, ge=1, le=20)
 
 
 @router.post("")
-def summarize_document(request: SummarizeRequest):
-    query_embedding = embed_texts([request.query])[0]
+def summarize(request: SummarizeRequest):
+    try:
+        result = summarize_document(
+            request.document_id,
+            max_sentences=request.max_sentences,
+        )
 
-    results = query_similar(
-        query_embedding,
-        n_results=request.n_results,
-        where={"document_id": request.document_id},
-    )
+        return {
+            "document_id": result.document_id,
+            "method": result.method,
+            "summary": result.summary,
+            "key_points": result.key_points,
+        }
 
-    return {
-        "document_id": request.document_id,
-        "summary": None,
-        "results": results,
-        "message": "LLM provider is not configured. Retrieved document chunks successfully."
-    }
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+    except RuntimeError as e:
+        raise HTTPException(status_code=503, detail=str(e))

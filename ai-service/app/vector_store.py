@@ -82,6 +82,11 @@ def upsert_document_chunks(
         for c in chunks
     ]
 
+    metadatas = [
+        {key: value for key, value in metadata.items() if value is not None}
+        for metadata in metadatas
+    ]
+
     collection.upsert(ids=ids, embeddings=embeddings, documents=documents, metadatas=metadatas)
     return len(chunks)
 
@@ -163,3 +168,5 @@ def reset_collection() -> None:
     client = get_client()
     client.delete_collection(COLLECTION_NAME)
     get_collection.cache_clear()
+
+
