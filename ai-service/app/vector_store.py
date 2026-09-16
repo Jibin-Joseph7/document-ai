@@ -1,3 +1,4 @@
+# ai-service/app/vector_store.py
 """
 Thin wrapper around a persistent ChromaDB collection. Embeddings are always
 computed ourselves (app/embeddings.py) and passed in explicitly - Chroma's
