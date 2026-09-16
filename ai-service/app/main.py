@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import get_settings
-from app.routers import ingest, search, qa, summarize
+from app.routers import ingest, search, qa, summarize, tag
 
 settings = get_settings()
 
@@ -35,5 +35,8 @@ def health():
 
 app.include_router(ingest.router)
 app.include_router(search.router)
+app.include_router(qa.router)
+app.include_router(summarize.router)
+app.include_router(tag.router)
 app.include_router(qa.router)
 app.include_router(summarize.router)
