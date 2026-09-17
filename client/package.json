@@ -1,16 +1,24 @@
 {
-  "name": "document-ai",
+  "name": "document-ai-client",
   "private": true,
   "version": "0.1.0",
-  "description": "AI-Powered Document Management & Knowledge Base System",
-  "workspaces": [
-    "client",
-    "server"
-  ],
+  "type": "module",
   "scripts": {
-    "dev:server": "npm run dev --workspace server",
-    "dev:client": "npm run dev --workspace client",
-    "install:ai": "pip install -r ai-service/requirements.txt"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "license": "MIT"
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.6.1",
+    "tailwindcss": "^4.3.3",
+    "vite": "^6.0.0"
+  }
 }
