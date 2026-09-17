@@ -1,3 +1,4 @@
+import React from 'react';
 // client/src/components/SummaryPanel.jsx
 import { useState } from 'react';
 import { Sparkles, RefreshCw } from 'lucide-react';

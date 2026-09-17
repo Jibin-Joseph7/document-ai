@@ -1,3 +1,4 @@
+import React from 'react';
 // client/src/components/DocumentUpload.jsx
 import { useRef, useState } from 'react';
 import { UploadCloud, FileText, CheckCircle2, XCircle, Loader2 } from 'lucide-react';
@@ -19,9 +20,9 @@ function UploadRow({ item }) {
 
   const statusLabel =
     item.status === 'uploading'
-      ? 'Uploading…'
+      ? 'Uploadingâ€¦'
       : item.status === 'processing'
-        ? 'Indexing for AI search…'
+        ? 'Indexing for AI searchâ€¦'
         : item.status === 'ready'
           ? 'Ready'
           : item.error || 'Failed';

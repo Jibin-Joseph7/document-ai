@@ -1,3 +1,4 @@
+import React from 'react';
 import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
@@ -8,7 +9,7 @@ export function ProtectedRoute({ children }) {
   if (loading) {
     return (
       <div className="flex h-screen items-center justify-center bg-paper">
-        <p className="text-sm text-ink-faint">Loading…</p>
+        <p className="text-sm text-ink-faint">Loadingâ€¦</p>
       </div>
     );
   }

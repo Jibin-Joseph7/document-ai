@@ -1,3 +1,4 @@
+import React from 'react';
 // client/src/components/SearchBar.jsx
 import { useState } from 'react';
 import { Search, Sparkles, X } from 'lucide-react';
@@ -45,7 +46,7 @@ export function SearchBar({ onKeywordResults, onSemanticResults, onCleared }) {
           placeholder={
             mode === 'semantic'
               ? 'Ask in natural language, e.g. "what is our leave policy?"'
-              : 'Search by title or filename…'
+              : 'Search by title or filenameâ€¦'
           }
           className="w-full rounded-sm border border-border-strong bg-surface py-2 pl-9 pr-8 text-sm text-ink outline-none focus:border-teal-600"
         />
@@ -88,7 +89,7 @@ export function SearchBar({ onKeywordResults, onSemanticResults, onCleared }) {
         disabled={loading || !query.trim()}
         className="rounded-sm bg-ink px-3 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-40"
       >
-        {loading ? 'Searching…' : 'Search'}
+        {loading ? 'Searchingâ€¦' : 'Search'}
       </button>
     </form>
   );

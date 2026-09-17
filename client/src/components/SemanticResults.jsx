@@ -1,3 +1,4 @@
+import React from 'react';
 // client/src/components/SemanticResults.jsx
 import { Sparkles, FileText } from 'lucide-react';
 
@@ -7,7 +8,7 @@ export function SemanticResults({ results, query }) {
       <div className="flex flex-col items-center justify-center rounded-sm border border-dashed border-border py-16 text-center">
         <Sparkles className="mb-2 h-6 w-6 text-ink-faint" />
         <p className="text-sm text-ink-faint">
-          No relevant content found for “{query}”.
+          No relevant content found for â€œ{query}â€.
         </p>
       </div>
     );

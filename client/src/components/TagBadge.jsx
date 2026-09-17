@@ -1,3 +1,4 @@
+import React from 'react';
 // client/src/components/TagBadge.jsx
 export function TagBadge({ name, onRemove }) {
   return (
@@ -9,7 +10,7 @@ export function TagBadge({ name, onRemove }) {
           aria-label={`Remove tag ${name}`}
           className="text-teal-700/60 hover:text-teal-700"
         >
-          ×
+          Ã—
         </button>
       )}
     </span>

@@ -1,3 +1,4 @@
+import React from 'react';
 // client/src/components/ErrorBoundary.jsx
 import { Component } from 'react';
 import { AlertTriangle } from 'lucide-react';

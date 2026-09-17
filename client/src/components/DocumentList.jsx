@@ -1,3 +1,4 @@
+import React from 'react';
 // client/src/components/DocumentList.jsx
 import { FileText, Star, Loader2, AlertCircle } from 'lucide-react';
 import { TagBadge } from './TagBadge';
@@ -12,7 +13,7 @@ function formatSize(bytes) {
 function StatusIcon({ status }) {
   if (status === 'ready') return null; // the common case stays quiet
   if (status === 'processing')
-    return <Loader2 className="h-3.5 w-3.5 animate-spin text-gold-600" title="Indexing…" />;
+    return <Loader2 className="h-3.5 w-3.5 animate-spin text-gold-600" title="Indexingâ€¦" />;
   return <AlertCircle className="h-3.5 w-3.5 text-error-600" title="Indexing failed" />;
 }
 
@@ -48,11 +49,11 @@ export function DocumentList({ documents, onSelect, onChanged, emptyLabel }) {
             </div>
             <div className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-faint">
               <span>{formatSize(doc.size_bytes)}</span>
-              <span>·</span>
+              <span>Â·</span>
               <span>{new Date(doc.created_at).toLocaleDateString()}</span>
               {doc.category && (
                 <>
-                  <span>·</span>
+                  <span>Â·</span>
                   <span>{doc.category}</span>
                 </>
               )}

@@ -1,3 +1,4 @@
+import React from 'react';
 // client/src/components/ChatAssistant.jsx
 import { useRef, useState, useEffect } from 'react';
 import { Sparkles, Send, FileText } from 'lucide-react';
@@ -52,14 +53,14 @@ export function ChatAssistant({ scopeDocId, scopeLabel }) {
       <div className="flex items-center gap-2 border-b border-border px-4 py-3">
         <Sparkles className="h-4 w-4 text-gold-600" />
         <h3 className="text-sm font-semibold text-ink">
-          Ask {scopeLabel ? `about “${scopeLabel}”` : 'your documents'}
+          Ask {scopeLabel ? `about â€œ${scopeLabel}â€` : 'your documents'}
         </h3>
       </div>
 
       <div className="flex-1 space-y-4 overflow-y-auto px-4 py-4">
         {messages.length === 0 && (
           <p className="text-sm text-ink-faint">
-            Ask a question in plain language — answers are grounded in your
+            Ask a question in plain language â€” answers are grounded in your
             {scopeDocId ? ' document' : ' visible documents'} only.
           </p>
         )}
@@ -95,7 +96,7 @@ export function ChatAssistant({ scopeDocId, scopeLabel }) {
             </div>
           </div>
         ))}
-        {asking && <p className="text-sm text-ink-faint">Thinking…</p>}
+        {asking && <p className="text-sm text-ink-faint">Thinkingâ€¦</p>}
         <div ref={bottomRef} />
       </div>
 
@@ -103,7 +104,7 @@ export function ChatAssistant({ scopeDocId, scopeLabel }) {
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Ask a question…"
+          placeholder="Ask a questionâ€¦"
           className="flex-1 rounded-sm border border-border-strong bg-surface px-3 py-2 text-sm text-ink outline-none focus:border-teal-600"
         />
         <button

@@ -1,3 +1,4 @@
+import React from 'react';
 // client/src/components/FolderSidebar.jsx
 import { useEffect, useState } from 'react';
 import { Folder, FolderPlus, Home, Star } from 'lucide-react';

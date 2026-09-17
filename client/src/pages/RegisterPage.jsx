@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
@@ -116,7 +117,7 @@ export default function RegisterPage() {
             value={department}
             onChange={(e) => setDepartment(e.target.value)}
             className="mb-4 w-full rounded-sm border border-border-strong bg-surface px-3 py-2 text-sm text-ink outline-none focus:border-teal-600"
-            placeholder="Finance, HR, Engineering…"
+            placeholder="Finance, HR, Engineeringâ€¦"
           />
 
           <label
@@ -147,7 +148,7 @@ export default function RegisterPage() {
             disabled={submitting}
             className="w-full rounded-sm bg-teal-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            {submitting ? "Creating account…" : "Create account"}
+            {submitting ? "Creating accountâ€¦" : "Create account"}
           </button>
         </form>
 

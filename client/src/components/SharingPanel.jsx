@@ -1,3 +1,4 @@
+import React from 'react';
 // client/src/components/SharingPanel.jsx
 import { useEffect, useState } from 'react';
 import { Users2, Trash2 } from 'lucide-react';
@@ -56,7 +57,7 @@ export function SharingPanel({ document: doc }) {
     setShares((prev) => prev.filter((s) => s.user_id !== userId));
   }
 
-  if (loading) return <p className="text-sm text-ink-faint">Loading sharing settings…</p>;
+  if (loading) return <p className="text-sm text-ink-faint">Loading sharing settingsâ€¦</p>;
 
   const alreadySharedIds = new Set(shares.map((s) => s.user_id));
   const availableUsers = candidates.filter(
@@ -113,7 +114,7 @@ export function SharingPanel({ document: doc }) {
           onChange={(e) => setSelectedUserId(e.target.value)}
           className="min-w-0 flex-1 rounded-sm border border-border-strong bg-surface px-2 py-1.5 text-xs text-ink outline-none focus:border-teal-600"
         >
-          <option value="">Add person…</option>
+          <option value="">Add personâ€¦</option>
           {availableUsers.map((u) => (
             <option key={u.id} value={u.id}>
               {u.name} ({u.email})

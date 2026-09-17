@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from "react";
 import {
   Link,
@@ -97,7 +98,7 @@ export default function LoginPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="mb-6 w-full rounded-sm border border-border-strong bg-surface px-3 py-2 text-sm text-ink outline-none focus:border-teal-600"
-            placeholder="••••••••"
+            placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
           />
 
           <button
@@ -106,7 +107,7 @@ export default function LoginPage() {
             className="w-full rounded-sm bg-teal-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {submitting
-              ? "Signing in…"
+              ? "Signing inâ€¦"
               : "Sign in"}
           </button>
         </form>

@@ -1,3 +1,4 @@
+import React from 'react';
 // client/src/components/DocumentViewer.jsx
 import { useState } from 'react';
 import { Download, X, Plus, Sparkles } from 'lucide-react';
@@ -81,7 +82,7 @@ export function DocumentViewer({ document: doc, onClose, onChanged, extraTabs })
           <div>
             <h2 className="font-serif text-lg text-ink">{doc.title}</h2>
             <p className="mt-0.5 text-xs text-ink-faint">
-              {formatSize(doc.size_bytes)} · Uploaded {new Date(doc.created_at).toLocaleDateString()}
+              {formatSize(doc.size_bytes)} Â· Uploaded {new Date(doc.created_at).toLocaleDateString()}
             </p>
           </div>
           <button onClick={onClose} aria-label="Close" className="text-ink-faint hover:text-ink">
@@ -96,7 +97,7 @@ export function DocumentViewer({ document: doc, onClose, onChanged, extraTabs })
             className="flex w-full items-center justify-center gap-2 rounded-sm bg-teal-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-teal-700 disabled:opacity-60"
           >
             <Download className="h-4 w-4" />
-            {downloading ? 'Downloading…' : 'Download original file'}
+            {downloading ? 'Downloadingâ€¦' : 'Download original file'}
           </button>
           {downloadError && <p className="text-sm text-error-600">{downloadError}</p>}
 
@@ -111,7 +112,7 @@ export function DocumentViewer({ document: doc, onClose, onChanged, extraTabs })
                 className="flex items-center gap-1 text-xs font-medium text-teal-600 hover:text-teal-700 disabled:opacity-50"
               >
                 <Sparkles className="h-3 w-3" />
-                {suggesting ? 'Suggesting…' : 'Suggest with AI'}
+                {suggesting ? 'Suggestingâ€¦' : 'Suggest with AI'}
               </button>
             </div>
             <div className="flex flex-wrap items-center gap-1.5">

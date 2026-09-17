@@ -1,3 +1,4 @@
+import React from 'react';
 // client/src/pages/DashboardPage.jsx
 import { useCallback, useEffect, useState } from 'react';
 import { Sparkles, BarChart3 } from 'lucide-react';
@@ -23,7 +24,7 @@ export default function DashboardPage() {
   const [showUpload, setShowUpload] = useState(false);
 
   // Search results are a distinct view layered over the normal folder
-  // list — searching doesn't change which folder is "selected".
+  // list â€” searching doesn't change which folder is "selected".
   const [searchView, setSearchView] = useState(null); // { mode, query, results } | null
   const [selectedDoc, setSelectedDoc] = useState(null);
   const [chatOpen, setChatOpen] = useState(false);
@@ -74,7 +75,7 @@ export default function DashboardPage() {
           </nav>
           <div className="flex items-center gap-4">
             <span className="text-sm text-ink-soft">
-              {user?.name} <span className="text-ink-faint">· {user?.role}</span>
+              {user?.name} <span className="text-ink-faint">Â· {user?.role}</span>
             </span>
             <button
               onClick={logout}
@@ -111,7 +112,7 @@ export default function DashboardPage() {
           <div className="flex items-center justify-between">
             <h2 className="font-serif text-lg text-ink">
               {searchView
-                ? `Results for “${searchView.query}”`
+                ? `Results for â€œ${searchView.query}â€`
                 : favoritesOnly
                   ? 'Favorites'
                   : 'All documents'}
@@ -129,7 +130,7 @@ export default function DashboardPage() {
           {searchView?.mode === 'semantic' ? (
             <SemanticResults results={searchView.results} query={searchView.query} />
           ) : loading ? (
-            <p className="text-sm text-ink-faint">Loading…</p>
+            <p className="text-sm text-ink-faint">Loadingâ€¦</p>
           ) : (
             <DocumentList
               documents={searchView?.mode === 'keyword' ? searchView.docs : documents}

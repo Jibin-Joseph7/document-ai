@@ -1,3 +1,4 @@
+import React from 'react';
 // client/src/components/AnalyticsDashboard.jsx
 import { useEffect, useState } from 'react';
 import { BarChart3, Eye, MessageCircleQuestion, HardDrive, FileText } from 'lucide-react';
@@ -56,7 +57,7 @@ export function AnalyticsDashboard() {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <p className="text-sm text-ink-faint">Loading analytics…</p>;
+  if (loading) return <p className="text-sm text-ink-faint">Loading analyticsâ€¦</p>;
   if (!overview) return null;
 
   const maxCategoryCount = Math.max(...overview.popularCategories.map((c) => c.count), 1);
@@ -120,10 +121,10 @@ export function AnalyticsDashboard() {
             {searchQueries.map((q, i) => (
               <li key={i} className="flex items-center justify-between text-sm">
                 <span className="text-ink">
-                  “{q.query}”{' '}
+                  â€œ{q.query}â€{' '}
                   <span className="text-xs text-ink-faint">({q.query_type})</span>
                 </span>
-                <span className="text-ink-faint">{q.count}×</span>
+                <span className="text-ink-faint">{q.count}Ã—</span>
               </li>
             ))}
           </ul>
